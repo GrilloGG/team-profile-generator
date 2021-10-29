@@ -68,7 +68,6 @@ const addManager = () => {
         const { name, id, email, oNumber} = managerInformation;
         const manager = new Manager ( name, id, email, oNumber)
         arrayTeam.push(manager)
-        console.log(managerInformation)
         addEmployee()
     })
     
@@ -93,7 +92,6 @@ const addEmployee = () => {
                 addIntern();
                 break;
             case "My team is completed":
-                console.log(arrayTeam)
                 createTemplate(arrayTeam)
                 break;
         }
@@ -160,7 +158,6 @@ const addEngineer = () => {
         const { name, id, email, github} = engineerInformation;
         const engineer = new Engineer (name, id, email, github)
         arrayTeam.push(engineer)
-        console.log(engineerInformation)
         addEmployee()
     })
 }
