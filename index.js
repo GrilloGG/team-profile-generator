@@ -1,9 +1,10 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
+const templateHTML = require("./src/templateHTML")
 const Engineer = require("./lib/Engineer")
 const Intern = require("./lib/Intern")
-const Manager = require("./lib/Manager")
+const Manager = require("./lib/Manager");
 
 const arrayTeam = [];
 
@@ -65,14 +66,13 @@ const addManager = () => {
     ])
     .then(managerInformation => {
         const { name, id, email, oNumber} = managerInformation;
-        const manager = new Manager (name, id, email, oNumber)
+        const manager = new Manager ( name, id, email, oNumber)
         arrayTeam.push(manager)
         console.log(managerInformation)
         addEmployee()
     })
     
 }
-addManager()
 
 const addEmployee = () => {
     return inquirer.prompt([
@@ -94,6 +94,7 @@ const addEmployee = () => {
                 break;
             case "My team is completed":
                 console.log(arrayTeam)
+                createTemplate(arrayTeam)
                 break;
         }
     });
@@ -229,3 +230,17 @@ const addIntern = () => {
     })
 }
 
+function writeToFile(fileName, data) { 
+    fs.writeFile(fileName, data, (err) =>
+    err
+    ? console.log(err)
+    : console.log("You have successfully created a README file!")
+  );
+}
+
+function createTemplate(pageHTML){
+    writeToFile("dist/index.html", templateHTML(pageHTML))
+    console.log('Successfully created README')
+}
+
+addManager()
