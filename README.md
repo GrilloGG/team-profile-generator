@@ -29,6 +29,8 @@ node index.js
 ```
 After that you will be able to answer a few question to complete your tem and generate the html.</br>
 
+In this link to can see how to use the app: https://youtu.be/HvJGPY-KzEY
+
 ## Test
 Run the following command to run the test for this app:
 ```bash
